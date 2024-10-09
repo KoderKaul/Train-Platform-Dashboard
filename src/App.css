@@ -1,0 +1,169 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card {
+  padding: 2em;
+}
+
+.dashboard-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.platform-dashboard {
+  flex-grow: 1;
+  margin-left: 20px;
+  width: 70%; /* Adjust this value as needed */
+}
+
+.platforms-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.platform {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  height: 80px; /* Increased height to accommodate both trains */
+}
+
+.platform-line {
+  flex-grow: 1;
+  height: 2px;
+  background-color: #ed6363;
+}
+
+.platform-label {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #fff;
+  padding: 0 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.train-info {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  max-width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 3;
+}
+
+.train-info span{
+  color: #333; /* Ensure text is visible */
+}
+
+.train-queue {
+  width: 25%; /* Adjust this value as needed */
+  padding-right: 20px;
+}
+
+/* Add some general styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+h1, h2, th, td, label,span {
+  color: #ffffff;
+  padding: 10px;
+}
+
+.train-schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.train-schedule-table th,
+.train-schedule-table td {
+  border: 1px solid white;
+  padding: 8px;
+  text-align: center;
+}
+
+.train-schedule-table th {
+  background-color: rgba(103, 95, 95, 0.1);
+}
+
+.train-schedule-table tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Style the input and button */
+input[type="number"], input[type="file"] {
+  padding: 5px;
+  margin: 5px 0;
+  color: #fff;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+.animated-train {
+  position: absolute;
+  width: 50px;
+  height: 25px;
+  bottom: 40px; /* Position above the train-info */
+  transition: left 2s ease-in-out;
+}
+
+.animated-train.entering {
+  animation: enterTrain 2s ease-in-out forwards;
+}
+
+.animated-train.departing {
+  animation: departTrain 5s ease-in-out forwards;
+}
+
+.train-info.departing {
+  animation: fadeOut 3s ease-in-out forwards;
+}
+
+@keyframes enterTrain {
+  0% { left: -50px; opacity: 0; }
+  100% { left: 0; opacity: 1; }
+}
+
+@keyframes departTrain {
+  0% { left: 0; }
+  100% { left: 75%; opacity: 0; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
