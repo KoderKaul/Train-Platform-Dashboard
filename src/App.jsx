@@ -77,7 +77,7 @@ function App() {
         if (platformTrains) {
           if ( now - parseTime(platformTrains.actualDeparture) >=0) {
               setCompletedTrains((prev) => {
-                const isAlreadyCompleted = prev.some(train => train.number === platformTrains.number && train.actualArrival === platformTrains.actualArrival);
+                const isAlreadyCompleted = prev.some(train => train === platformTrains);
                 if (!isAlreadyCompleted) {
                   return [
                     ...prev,
