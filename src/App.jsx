@@ -5,6 +5,7 @@ import TrainQueue from "./components/TrainScheduleQueue.jsx";
 import TrainScheduleTable from "./components/TrainScheduleTable.jsx";
 import UploadCSV from "./components/UploadCSV.jsx";
 import "./App.css";
+import Clock from "./components/Clock.jsx";
 
 function App() {
   const [trains, setTrains] = useState([]);
@@ -55,7 +56,7 @@ function App() {
 
   const sortQueue = (queueToSort) => {
     return [...queueToSort].sort((a, b) => {
-      const delta = (-parseTime(a.actualArrival) +  parseTime(b.actualArrival));
+      const delta = (parseTime(a.actualArrival) -  parseTime(b.actualArrival));
       if (delta != 0) {
         return delta;
       }
@@ -126,6 +127,7 @@ function App() {
   return (
     <div className="App">
       <h1>Train Scheduler</h1>
+      <Clock/>
       <div>
         <label>Number of Platforms: </label>
         <input
